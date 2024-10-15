@@ -7,11 +7,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.RafaelLeiteFernandes.model.domain.Cliente;
-import br.edu.infnet.RafaelLeiteFernandes.model.domain.Pedido;
-import br.edu.infnet.RafaelLeiteFernandes.model.domain.Produto;
-import br.edu.infnet.RafaelLeiteFernandes.model.domain.ProdutoAcabado;
-import br.edu.infnet.RafaelLeiteFernandes.model.domain.SubProduto;
+import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteEletronico;
+import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteMecanico;
+import br.edu.infnet.RafaelLeiteFernandes.model.domain.LinhaProducao;
+import br.edu.infnet.RafaelLeiteFernandes.model.domain.Supervisor;
 
 @Component
 public class Loader implements ApplicationRunner {
@@ -24,57 +23,57 @@ public class Loader implements ApplicationRunner {
 		
 		String linha = leitura.readLine();
 		
+		LinhaProducao linhaDeProducao = null;
+		
 		while(linha != null) {
 			
 			String[] campos = linha.split(";");
 			
 			switch (campos[0].toUpperCase()) {
-			case "C":
+			case "L":
 				
-				Cliente cliente = new Cliente();
-				cliente.setNomeCliente(campos[1]);
-				cliente.setEndereco(campos[2]);
+				Supervisor supervisor = new Supervisor();
+				supervisor.setNome(campos[13]);
 				
+				linhaDeProducao = new LinhaProducao();
+				linhaDeProducao.setIdentificador(campos[1]);
+				linhaDeProducao.setStatus(campos[3]);
+				linhaDeProducao.setSupervisor(supervisor);
 				
-				break;
-				
-			case "P":
-				
-				Produto produto = new Produto();
-				produto.setCodigo(campos[1]);
-				
-				break;
-			case "V":
-				
-				
-				Pedido pedido = new Pedido();
-				pedido.setStatus(campos[3]);
-				
-				break;
-			case "A":
-				
-				ProdutoAcabado produtoAcabado = new ProdutoAcabado();
-				produtoAcabado.setTipoEmbalagem(campos[6]);
+				System.out.println("Linha cadastrada com sucesso:" + linhaDeProducao);
 				
 				break;
 			
-			case "S":
+			case "E":
 				
-				SubProduto subProduto = new SubProduto();
-				subProduto.setDestino(campos[6]);
+				ComponenteEletronico componenteEletronico = new ComponenteEletronico();
+				componenteEletronico.setNome(campos[1]);
+				componenteEletronico.setCodigo(campos[2]);
+				
+				linhaDeProducao.getComponentes().add(componenteEletronico);
+				
+				break;
+			
+			case "M":
+				
+				ComponenteMecanico componenteMecanico = new ComponenteMecanico();
+				componenteMecanico.setNome(campos[1]);
+				componenteMecanico.setCodigo(campos[2]);
+				
+				linhaDeProducao.getComponentes().add(componenteMecanico);
 				
 				break;
 
-			default:;
+			default:
 				break;
 			}
 			
-			System.out.println(linha);
 			
 			linha = leitura.readLine();
 		}
 		
 		leitura.close();
+		
 	}
 
 }
