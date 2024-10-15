@@ -1,0 +1,25 @@
+
+C;joao silva;Rua A, 123;boleto
+C;maria oliveira;Avenida B, 456;cartao
+C;carlos pereira;Rua C, 789;dinheiro
+C;ana santos;Avenida D, 101;pix
+
+
+
+P;101;Parafuso M10;50;0.10;Fixacao
+P;102;Chapa Aco Inox;20000;150.00;Metalurgia
+P;103;Cabo Eletrico 2mm;100;30.00;Eletrica
+P;104;Rolamento Esferico;500;20.00;Mecanica
+P;105;Valvula de Pressao;1500;250.00;Hidraulica
+P;106;Lubrificante Industrial;1000;45.00;Lubrificantes
+
+V;1001;500.00;EmAndamento;C;joao silva;Rua A, 123;boleto;P;101;P;102;P;103
+V;1002;250.00;Finalizado;C;maria oliveira;Avenida B, 456;cartao;P;104;P;105
+V;1003;120.00;Pendente;C;carlos pereira;Rua C, 789;dinheiro;P;103;P;106
+
+
+A;Parafuso M10;1000;2024-10-01;2024-10-10;true;Caixa;789456123000;true
+A;Chapa Aco Inox;500;2024-09-20;2024-10-05;false;Palete;456123789000;false
+
+S;Cabo Eletrico 2mm;200;2024-10-01;2024-10-15;true;Armazenagem;Lote001;false
+S;Valvula de Pressao;150;2024-09-25;2024-10-12;true;Expedicao;Lote002;true

@@ -5,6 +5,12 @@ public class Cliente {
     private String endereco;
     private String metodoPagamento;
     
+    @Override
+    public String toString() {
+    		
+    	return "Cliente " + nomeCliente + " [" + endereco + "] cadastrado com sucesso!";
+    }
+    
 	public String getNomeCliente() {
 		return nomeCliente;
 	}

@@ -1,5 +1,6 @@
 package br.edu.infnet.RafaelLeiteFernandes.model.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -8,6 +9,10 @@ public class Pedido {
 	private String status;
 	private Cliente cliente;
 	private List<Produto> produtos;
+	
+	public Pedido() {
+		produtos = new ArrayList<Produto>();
+	}
 	
 	public int getNumero() {
 		return numero;
