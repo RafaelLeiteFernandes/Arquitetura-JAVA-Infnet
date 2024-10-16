@@ -6,6 +6,12 @@ public class Supervisor {
     private String certificacao;
     private int idade;
     
+    @Override
+    public String toString() {
+    	
+    	return "Supervisor:" + nome;
+    }
+    
 	public String getNome() {
 		return nome;
 	}

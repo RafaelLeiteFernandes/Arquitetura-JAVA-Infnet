@@ -19,7 +19,12 @@ public class LinhaProducao {
     @Override
     public String toString() {
     	
-    	return "Linha" + identificador + "cadastrada com sucesso!";
+    	return String.format("[%s Supervisor: %s cadastrado com sucesso! Componentes: %d]", 
+    			identificador,
+    			supervisor,
+    			componentes.size()
+    		);
+    	
     }
     
 	public String getIdentificador() {

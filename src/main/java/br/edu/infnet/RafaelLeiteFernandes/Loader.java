@@ -2,6 +2,9 @@ package br.edu.infnet.RafaelLeiteFernandes;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,6 +17,8 @@ import br.edu.infnet.RafaelLeiteFernandes.model.domain.Supervisor;
 
 @Component
 public class Loader implements ApplicationRunner {
+	
+	private  Map<String, LinhaProducao> mapaLinhaProducao = new HashMap<String, LinhaProducao>();
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -40,7 +45,7 @@ public class Loader implements ApplicationRunner {
 				linhaDeProducao.setStatus(campos[3]);
 				linhaDeProducao.setSupervisor(supervisor);
 				
-				System.out.println("Linha cadastrada com sucesso:" + linhaDeProducao);
+				mapaLinhaProducao.put(linhaDeProducao.getIdentificador(), linhaDeProducao);
 				
 				break;
 			
@@ -70,6 +75,11 @@ public class Loader implements ApplicationRunner {
 			
 			
 			linha = leitura.readLine();
+		}
+		
+		for(LinhaProducao l: mapaLinhaProducao.values()) {
+			System.out.println("Linha cadastrada com sucesso:" + l);
+
 		}
 		
 		leitura.close();

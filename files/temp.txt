@@ -1,0 +1,24 @@
+case "M":
+    if (linhaDeProducao != null) {
+        ComponenteMecanico componenteMecanico = new ComponenteMecanico();
+        componenteMecanico.setNome(campos[1]);
+        componenteMecanico.setCodigo(campos[2]);
+
+        linhaDeProducao.getComponentes().add(componenteMecanico);
+    } else {
+        System.err.println("Erro: Tentativa de adicionar componente mecânico a uma linha de produção nula.");
+    }
+    break;
+    
+    
+    case "E":
+    if (linhaDeProducao != null) {
+        ComponenteEletronico componenteEletronico = new ComponenteEletronico();
+        componenteEletronico.setNome(campos[1]);
+        componenteEletronico.setCodigo(campos[2]);
+
+        linhaDeProducao.getComponentes().add(componenteEletronico);
+    } else {
+        System.err.println("Erro: Tentativa de adicionar componente eletrônico a uma linha de produção nula.");
+    }
+    break;
