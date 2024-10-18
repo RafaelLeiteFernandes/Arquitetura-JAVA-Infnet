@@ -19,7 +19,7 @@ public class LinhaProducao {
     @Override
     public String toString() {
     	
-    	return String.format("[%s Supervisor: %s cadastrado com sucesso! Componentes: %d]", 
+    	return String.format("[%s %s cadastrado com sucesso! Componentes: %d]", 
     			identificador,
     			supervisor,
     			componentes.size()

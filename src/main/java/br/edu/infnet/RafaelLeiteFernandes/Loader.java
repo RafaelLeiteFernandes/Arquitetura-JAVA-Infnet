@@ -2,10 +2,8 @@ package br.edu.infnet.RafaelLeiteFernandes;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -14,12 +12,14 @@ import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteEletronico;
 import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteMecanico;
 import br.edu.infnet.RafaelLeiteFernandes.model.domain.LinhaProducao;
 import br.edu.infnet.RafaelLeiteFernandes.model.domain.Supervisor;
+import br.edu.infnet.RafaelLeiteFernandes.model.service.LinhaProducaoService;
 
 @Component
 public class Loader implements ApplicationRunner {
 	
-	private  Map<String, LinhaProducao> mapaLinhaProducao = new HashMap<String, LinhaProducao>();
-
+	@Autowired
+	private LinhaProducaoService linhaProducaoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
@@ -38,36 +38,31 @@ public class Loader implements ApplicationRunner {
 			case "L":
 				
 				Supervisor supervisor = new Supervisor();
-				supervisor.setNome(campos[13]);
+				supervisor.setNome(campos[2]);
 				
 				linhaDeProducao = new LinhaProducao();
 				linhaDeProducao.setIdentificador(campos[1]);
 				linhaDeProducao.setStatus(campos[3]);
 				linhaDeProducao.setSupervisor(supervisor);
-				
-				mapaLinhaProducao.put(linhaDeProducao.getIdentificador(), linhaDeProducao);
-				
-				break;
-			
-			case "E":
-				
-				ComponenteEletronico componenteEletronico = new ComponenteEletronico();
-				componenteEletronico.setNome(campos[1]);
-				componenteEletronico.setCodigo(campos[2]);
-				
-				linhaDeProducao.getComponentes().add(componenteEletronico);
+				linhaProducaoService.incluir(linhaDeProducao);
 				
 				break;
 			
 			case "M":
-				
-				ComponenteMecanico componenteMecanico = new ComponenteMecanico();
-				componenteMecanico.setNome(campos[1]);
-				componenteMecanico.setCodigo(campos[2]);
-				
-				linhaDeProducao.getComponentes().add(componenteMecanico);
-				
-				break;
+			        ComponenteMecanico componenteMecanico = new ComponenteMecanico();
+			        componenteMecanico.setCodigo(campos[2]);
+
+			        linhaDeProducao.getComponentes().add(componenteMecanico);
+
+			    break;
+			    
+			    
+			    case "E":
+			        ComponenteEletronico componenteEletronico = new ComponenteEletronico();
+			        componenteEletronico.setCodigo(campos[2]);
+			        linhaDeProducao.getComponentes().add(componenteEletronico);
+
+			    break;
 
 			default:
 				break;
@@ -77,7 +72,7 @@ public class Loader implements ApplicationRunner {
 			linha = leitura.readLine();
 		}
 		
-		for(LinhaProducao l: mapaLinhaProducao.values()) {
+		for(LinhaProducao l: linhaProducaoService.obterLista()) {
 			System.out.println("Linha cadastrada com sucesso:" + l);
 
 		}

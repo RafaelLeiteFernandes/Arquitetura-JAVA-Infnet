@@ -1,12 +1,7 @@
-C;Motor AC;M001;1500.50;2023-06-15;IndCom;100;true
-C;Engrenagem;M002;200.00;2024-01-10;MetalParts;500;false
-
+L;Linha1;Joao Silva;Ativo;2024-10-01;2024-10-30;15000.00
 E;Controlador;E001;250.75;2023-04-20;TecElec;50;true;500;Analogico;220;60
-E;Sensor de Temperatura;E002;75.50;2024-05-18;ElecEquip;120;true;50;Digital;110;50
-
-
 M;Pistao Hidraulico;M003;500.00;2023-03-25;HydraParts;200;true;Aco;2.5;800;Forjado
-M;Parafuso M12;M004;0.10;2024-09-01;FixParts;1000;true;Aco Carbono;0.01;1000;Usinado
 
-L;Linha1;Joao Silva;true;Ativo;2024-10-01;2024-10-30;15000.00;C;M001;C;M002;E;E001;Carlos Almeida;10;ISO9001;45
-L;Linha2;Maria Souza;false;Parada;2024-09-15;2024-11-01;20000.00;M;M003;M;M004;Ana Costa;5;SixSigma;32
+L;Linha2;Maria Souza;Parada;2024-09-15;2024-11-01;20000.00
+M;Parafuso M12;M004;0.10;2024-09-01;FixParts;1000;true;Aco Carbono;0.01;1000;Usinado
+E;Sensor de Temperatura;E002;75.50;2024-05-18;ElecEquip;120;true;50;Digital;110;50
