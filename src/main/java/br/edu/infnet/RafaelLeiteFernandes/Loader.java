@@ -44,6 +44,8 @@ public class Loader implements ApplicationRunner {
 				linhaDeProducao.setIdentificador(campos[1]);
 				linhaDeProducao.setStatus(campos[3]);
 				linhaDeProducao.setSupervisor(supervisor);
+				
+				
 				linhaProducaoService.incluir(linhaDeProducao);
 				
 				break;
