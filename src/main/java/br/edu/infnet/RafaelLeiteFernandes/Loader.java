@@ -12,6 +12,7 @@ import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteEletronico;
 import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteMecanico;
 import br.edu.infnet.RafaelLeiteFernandes.model.domain.LinhaProducao;
 import br.edu.infnet.RafaelLeiteFernandes.model.domain.Supervisor;
+import br.edu.infnet.RafaelLeiteFernandes.model.service.ComponenteService;
 import br.edu.infnet.RafaelLeiteFernandes.model.service.LinhaProducaoService;
 
 @Component
@@ -19,7 +20,8 @@ public class Loader implements ApplicationRunner {
 	
 	@Autowired
 	private LinhaProducaoService linhaProducaoService;
-	
+	@Autowired
+	private ComponenteService componenteService;
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
@@ -53,7 +55,9 @@ public class Loader implements ApplicationRunner {
 			case "M":
 			        ComponenteMecanico componenteMecanico = new ComponenteMecanico();
 			        componenteMecanico.setCodigo(campos[2]);
-
+			        
+			        componenteService.incluir(componenteMecanico);
+			        
 			        linhaDeProducao.getComponentes().add(componenteMecanico);
 
 			    break;
@@ -62,6 +66,9 @@ public class Loader implements ApplicationRunner {
 			    case "E":
 			        ComponenteEletronico componenteEletronico = new ComponenteEletronico();
 			        componenteEletronico.setCodigo(campos[2]);
+			        
+			        componenteService.incluir(componenteEletronico);
+			        
 			        linhaDeProducao.getComponentes().add(componenteEletronico);
 
 			    break;

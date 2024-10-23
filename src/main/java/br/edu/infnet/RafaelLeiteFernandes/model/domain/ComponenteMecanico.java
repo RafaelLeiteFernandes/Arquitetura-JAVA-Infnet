@@ -1,5 +1,10 @@
 package br.edu.infnet.RafaelLeiteFernandes.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TMecanico")
 public class ComponenteMecanico extends Componente {
 	private String material;
     private double peso;

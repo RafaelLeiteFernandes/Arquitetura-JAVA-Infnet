@@ -1,5 +1,10 @@
 package br.edu.infnet.RafaelLeiteFernandes.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TEletronico")
 public class ComponenteEletronico extends Componente {
 	  	private int potencia;
 	    private String tipoCircuito;
