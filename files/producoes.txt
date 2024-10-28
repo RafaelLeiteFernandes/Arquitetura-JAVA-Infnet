@@ -1,6 +1,6 @@
 L;Linha1;Joao Silva;Ativo;2024-10-01;2024-10-30;15000.00
-E;Controlador;E001;250.75;2023-04-20;TecElec;50;true;500;Analogico;220;60;1
-M;Pistao Hidraulico;M003;500.00;2023-03-25;HydraParts;200;true;Aco;2.5;800;Forjado;1
+E;Controlador;E001;250.75;2023-04-20;TecElec;50;true;500;Analogico;220;60
+M;Pistao Hidraulico;M003;500.00;2023-03-25;HydraParts;200;true;Aco;2.5;800;Forjado
 L;Linha2;Maria Souza;Parada;2024-09-15;2024-11-01;20000.00
-M;Parafuso M12;M004;0.10;2024-09-01;FixParts;1000;true;Aco Carbono;0.01;1000;Usinado;2
-E;Sensor de Temperatura;E002;75.50;2024-05-18;ElecEquip;120;true;50;Digital;110;50;2
+M;Parafuso M12;M004;0.10;2024-09-01;FixParts;1000;true;Aco Carbono;0.01;1000;Usinado
+E;Sensor de Temperatura;E002;75.50;2024-05-18;ElecEquip;120;true;50;Digital;110;50

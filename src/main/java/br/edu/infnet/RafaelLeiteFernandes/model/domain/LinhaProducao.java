@@ -3,10 +3,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -20,7 +24,8 @@ public class LinhaProducao {
     
     @Transient
     private Supervisor supervisor;
-    @Transient
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "idLinhaProducao")
     private List<Componente> componentes;
     
     private String status;
@@ -35,10 +40,12 @@ public class LinhaProducao {
     @Override
     public String toString() {
     	
-    	return String.format("[%s %s cadastrado com sucesso! Componentes: %d]", 
-    			identificador,
-    			supervisor,
-    			componentes.size()
+        return String.format("[%s %s %d cadastrado com sucesso! Componentes: %d]", 
+                identificador,
+                supervisor,
+                id,
+                componentes.size()
+            
     		);
     	
     }

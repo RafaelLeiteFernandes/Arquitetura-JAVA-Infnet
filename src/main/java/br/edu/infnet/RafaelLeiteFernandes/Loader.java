@@ -48,6 +48,10 @@ public class Loader implements ApplicationRunner {
 				linhaDeProducao.setSupervisor(supervisor);
 				
 				
+				linhaDeProducao = linhaProducaoService.incluir(linhaDeProducao);
+				System.out.println("LINHA ["+linhaDeProducao+"]");
+				
+				
 				linhaProducaoService.incluir(linhaDeProducao);
 				
 				break;
@@ -55,7 +59,7 @@ public class Loader implements ApplicationRunner {
 			case "M":
 			        ComponenteMecanico componenteMecanico = new ComponenteMecanico();
 			        componenteMecanico.setCodigo(campos[2]);
-			        
+			        componenteMecanico.setLinhaProducao(linhaDeProducao);
 			        componenteService.incluir(componenteMecanico);
 			        
 			        linhaDeProducao.getComponentes().add(componenteMecanico);
@@ -66,6 +70,7 @@ public class Loader implements ApplicationRunner {
 			    case "E":
 			        ComponenteEletronico componenteEletronico = new ComponenteEletronico();
 			        componenteEletronico.setCodigo(campos[2]);
+			        componenteEletronico.setLinhaProducao(linhaDeProducao);
 			        
 			        componenteService.incluir(componenteEletronico);
 			        

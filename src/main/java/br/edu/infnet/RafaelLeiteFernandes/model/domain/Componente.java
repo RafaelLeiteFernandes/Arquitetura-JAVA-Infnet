@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,55 +26,81 @@ public abstract class Componente {
     private String fornecedor;
     private int estoque;
     private boolean ativo;
-    
+        
+    @ManyToOne
+    @JoinColumn(name = "idLinhaProducao")
+    private LinhaProducao linhaProducao;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+
 	public double getPreco() {
 		return preco;
 	}
+
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+
 	public Date getDataFabricacao() {
 		return dataFabricacao;
 	}
+
 	public void setDataFabricacao(Date dataFabricacao) {
 		this.dataFabricacao = dataFabricacao;
 	}
+
 	public String getFornecedor() {
 		return fornecedor;
 	}
+
 	public void setFornecedor(String fornecedor) {
 		this.fornecedor = fornecedor;
 	}
+
 	public int getEstoque() {
 		return estoque;
 	}
+
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
+
 	public boolean isAtivo() {
 		return ativo;
 	}
+
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-    
-	
+
+	public LinhaProducao getLinhaProducao() {
+		return linhaProducao;
+	}
+
+	public void setLinhaProducao(LinhaProducao linhaProducao) {
+		this.linhaProducao = linhaProducao;
+	}
+
 }
