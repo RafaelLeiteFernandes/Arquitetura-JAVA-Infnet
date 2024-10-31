@@ -1,6 +1,19 @@
 package br.edu.infnet.RafaelLeiteFernandes.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "TSupervisor")
 public class Supervisor {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private String nome;
     private int experiencia;
     private String certificacao;
@@ -12,6 +25,14 @@ public class Supervisor {
     	return "Supervisor:" + nome;
     }
     
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}

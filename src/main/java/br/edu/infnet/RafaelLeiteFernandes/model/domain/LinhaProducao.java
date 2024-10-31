@@ -11,8 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "PLinhaProducao")
@@ -22,16 +24,19 @@ public class LinhaProducao {
 	private Integer id;
     private String identificador; 
     
-    @Transient
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idSupervisor")
     private Supervisor supervisor;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
-    @JoinColumn(name = "idLinhaProducao")
-    private List<Componente> componentes;
-    
     private String status;
     private Date dataInicio;
     private Date dataFimPrevisto;
     private double custoOperacional;
+    
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "idLinhaProducao")
+    @JsonManagedReference
+    private List<Componente> componentes;
+    
     
     public LinhaProducao() {
     	componentes = new ArrayList<Componente>();

@@ -22,6 +22,7 @@ public class Loader implements ApplicationRunner {
 	private LinhaProducaoService linhaProducaoService;
 	@Autowired
 	private ComponenteService componenteService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
@@ -47,10 +48,8 @@ public class Loader implements ApplicationRunner {
 				linhaDeProducao.setStatus(campos[3]);
 				linhaDeProducao.setSupervisor(supervisor);
 				
-				
 				linhaDeProducao = linhaProducaoService.incluir(linhaDeProducao);
 				System.out.println("LINHA ["+linhaDeProducao+"]");
-				
 				
 				linhaProducaoService.incluir(linhaDeProducao);
 				
@@ -65,7 +64,6 @@ public class Loader implements ApplicationRunner {
 			        linhaDeProducao.getComponentes().add(componenteMecanico);
 
 			    break;
-			    
 			    
 			    case "E":
 			        ComponenteEletronico componenteEletronico = new ComponenteEletronico();
@@ -82,14 +80,15 @@ public class Loader implements ApplicationRunner {
 				break;
 			}
 			
-			
 			linha = leitura.readLine();
 		}
 		
 		for(LinhaProducao l: linhaProducaoService.obterLista()) {
 			System.out.println("Linha cadastrada com sucesso:" + l);
-
 		}
+		
+		// CHAMADA DOS SERVICES
+		System.out.println("###### linhaProducaoRespository ########" + linhaProducaoService.obterPorIdentificador("2"));
 		
 		leitura.close();
 		
