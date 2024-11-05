@@ -1,0 +1,21 @@
+L;Linha1;Joao Silva;Ativo;2024-10-01;2024-10-30;15000.00
+E;Controlador;E001;250.75;2023-04-20;TecElec;50;true;500;Analogico;220;60
+M;Pistao Hidraulico;M003;500.00;2023-03-25;HydraParts;200;true;Aco;2.5;800;Forjado
+L;Linha2;Maria Souza;Parada;2024-09-15;2024-11-01;20000.00
+M;Parafuso M12;M004;0.10;2024-09-01;FixParts;1000;true;Aco Carbono;0.01;1000;Usinado
+E;Sensor de Temperatura;E002;75.50;2024-05-18;ElecEquip;120;true;50;Digital;110;50
+L;Linha3;Carlos Pereira;Ativo;2024-08-01;2024-12-01;18000.00
+M;Engrenagem;M005;300.00;2023-06-15;GearWorks;150;true;Aco Inox;5.0;1200;Fundido
+E;Modulo de Potencia;E003;450.00;2023-07-10;PowerTech;80;true;750;Digital;230;50
+L;Linha4;Ana Lima;Parada;2024-07-01;2024-10-01;22000.00
+M;Eixo Principal;M006;700.00;2023-05-20;AxisCorp;100;true;Aco;10.0;2000;Forjado
+E;Placa de Circuito;E004;150.00;2023-08-25;CircuitBoard Inc;200;true;300;Analogico;110;60
+L;Linha5;Pedro Santos;Ativo;2024-06-01;2024-09-01;25000.00
+M;Rolamento;M007;50.00;2023-09-10;BearingCo;500;true;Aco Carbono;0.5;500;Usinado
+E;Transistor;E005;20.00;2023-10-05;SemiConductor Ltd;1000;true;100;Digital;5;1000
+L;Linha6;Fernanda Oliveira;Parada;2024-05-01;2024-08-01;30000.00
+M;Valvula de Controle;M008;400.00;2023-11-15;ValveTech;250;true;Aco Inox;3.0;1500;Fundido
+E;Resistor;E006;5.00;2023-12-20;ResistTech;2000;true;10;Analogico;220;50
+L;Linha7;Lucas Almeida;Ativo;2024-04-01;2024-07-01;28000.00
+M;Cilindro Pneumatico;M009;600.00;2024-01-10;PneumaCorp;300;true;Aluminio;4.0;1000;Extrudado
+E;Capacitor;E007;15.00;2024-02-15;CapacitorCo;1500;true;200;Digital;50;500

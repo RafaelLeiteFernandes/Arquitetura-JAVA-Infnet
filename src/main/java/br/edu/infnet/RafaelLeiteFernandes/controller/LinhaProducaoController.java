@@ -13,19 +13,23 @@ import br.edu.infnet.RafaelLeiteFernandes.model.service.LinhaProducaoService;
 
 @RestController
 public class LinhaProducaoController {
-	
-	@Autowired
-	private LinhaProducaoService linhaProducaoService;
-	
-	@GetMapping(value = "/lista/LinhaProducao")
-	public Collection<LinhaProducao> obterLista(){
-		
-		return linhaProducaoService.obterLista();
-	}
-	
-	@GetMapping(value = "/identificadores/buscar/{identificador}" )
-	public List<LinhaProducao> obterPorIdentificador(@PathVariable String identificador) {
-		return linhaProducaoService.obterPorIdentificador(identificador);
-	}
-		
+    
+    @Autowired
+    private LinhaProducaoService linhaProducaoService;
+    
+    @GetMapping(value = "linha/lista/LinhaProducao")
+    public Collection<LinhaProducao> obterLista(){
+        return linhaProducaoService.obterLista();
+    }
+    
+    @GetMapping(value = "linha/identificadores/buscar/{identificador}" )
+    public List<LinhaProducao> obterPorIdentificador(@PathVariable String identificador) {
+        return linhaProducaoService.obterPorIdentificador(identificador);
+    }
+
+    @GetMapping(value = "linha/status/buscar/{status}" )
+    public List<LinhaProducao> obterPorStatus(@PathVariable String status) {
+        return linhaProducaoService.obterPorStatus(status);
+    }
+
 }

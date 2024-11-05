@@ -11,22 +11,24 @@ import br.edu.infnet.RafaelLeiteFernandes.model.repository.LinhaProducaoReposito
 
 @Service
 public class LinhaProducaoService {
-	
-	@Autowired
-	private LinhaProducaoRepository linhaProducaoRepository;
-	
-	
-	public LinhaProducao incluir(LinhaProducao linhaDeProducao) {
-		
-		return linhaProducaoRepository.save(linhaDeProducao);
+    
+    @Autowired
+    private LinhaProducaoRepository linhaProducaoRepository;
+    
+    public LinhaProducao incluir(LinhaProducao linhaDeProducao) {
+        return linhaProducaoRepository.save(linhaDeProducao);
+    }
+    
+    public Collection<LinhaProducao> obterLista(){
+        return (Collection<LinhaProducao>) linhaProducaoRepository.findAll();
+    }
+    
+    public List<LinhaProducao> obterPorIdentificador(String identificador){
+        return linhaProducaoRepository.findByIdentificadorContaining(identificador);
+    }
 
-	}
-	
-	public Collection<LinhaProducao> obterLista(){
-		return (Collection<LinhaProducao>) linhaProducaoRepository.findAll();
-	}
-	
-	public List<LinhaProducao> obterPorIdentificador(String identificador){
-		return linhaProducaoRepository.findByIdentificadorContaining(identificador);
-	}	
+    public List<LinhaProducao> obterPorStatus(String status){
+        return linhaProducaoRepository.findByStatus(status);
+    }
+
 }

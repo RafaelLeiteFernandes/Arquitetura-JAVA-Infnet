@@ -9,5 +9,6 @@ import br.edu.infnet.RafaelLeiteFernandes.model.domain.LinhaProducao;
 
 @Repository
 public interface LinhaProducaoRepository extends CrudRepository<LinhaProducao, Integer> {
-	List<LinhaProducao> findByIdentificadorContaining(String identificador);
+    List<LinhaProducao> findByIdentificadorContaining(String identificador);
+    List<LinhaProducao> findByStatus(String status);
 }
