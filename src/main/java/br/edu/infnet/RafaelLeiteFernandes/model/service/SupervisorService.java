@@ -18,6 +18,10 @@ public class SupervisorService {
         supervisorRepository.save(supervisor);
     }
     
+    public List<Supervisor> obterLista(){
+        return (List<Supervisor>) supervisorRepository.findAll();
+    }
+
     public List<Supervisor> obterPorNome(String nome) {
         return supervisorRepository.findByNomeContaining(nome);
     }
@@ -32,5 +36,16 @@ public class SupervisorService {
 
     public List<Supervisor> obterPorIdade(int idade) {
         return supervisorRepository.findByIdade(idade);
+    }
+
+    public void excluir(Integer id) {
+        supervisorRepository.deleteById(id);
+    }
+
+    public void atualizar(Integer id, Supervisor supervisor) {
+        if (supervisorRepository.existsById(id)) {
+            supervisor.setId(id);
+            supervisorRepository.save(supervisor);
+        }
     }
 }

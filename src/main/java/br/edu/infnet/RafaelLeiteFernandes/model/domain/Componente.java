@@ -13,10 +13,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
 @Table(name = "TComponente")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(
+	    use = JsonTypeInfo.Id.NAME,
+	    include = JsonTypeInfo.As.PROPERTY,
+	    property = "type"
+	)
+	@JsonSubTypes({
+	    @JsonSubTypes.Type(value = ComponenteMecanico.class, name = "mecanico"),
+	    @JsonSubTypes.Type(value = ComponenteEletronico.class, name = "eletronico")
+	})
 public abstract class Componente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -19,6 +19,11 @@ public class SupervisorController {
     public List<Supervisor> obterPorNome(@PathVariable String nome) {
         return supervisorService.obterPorNome(nome);
     }
+    
+    @GetMapping(value = "/all")
+    public List<Supervisor> obterLista(){
+        return supervisorService.obterLista();
+    }
 
     @GetMapping(value = "/filtrarPorExperiencia/{experiencia}")
     public List<Supervisor> obterPorExperiencia(@PathVariable int experiencia) {
@@ -38,5 +43,15 @@ public class SupervisorController {
     @PostMapping(value = "/incluir")
     public void incluir(@RequestBody Supervisor supervisor) {
         supervisorService.incluir(supervisor);
+    }
+
+    @DeleteMapping(value = "/excluir/{id}")
+    public void excluir(@PathVariable Integer id) {
+        supervisorService.excluir(id);
+    }
+
+    @PutMapping(value = "/atualizar/{id}")
+    public void atualizar(@PathVariable Integer id, @RequestBody Supervisor supervisor) {
+        supervisorService.atualizar(id, supervisor);
     }
 }
