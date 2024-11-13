@@ -34,9 +34,6 @@ public class SupervisorService {
         return supervisorRepository.findByCertificacaoContaining(certificacao);
     }
 
-    public List<Supervisor> obterPorIdade(int idade) {
-        return supervisorRepository.findByIdade(idade);
-    }
 
     public void excluir(Integer id) {
         supervisorRepository.deleteById(id);

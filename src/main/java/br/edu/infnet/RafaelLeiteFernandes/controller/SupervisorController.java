@@ -35,11 +35,6 @@ public class SupervisorController {
         return supervisorService.obterPorCertificacao(certificacao);
     }
 
-    @GetMapping(value = "/filtrarPorIdade/{idade}")
-    public List<Supervisor> obterPorIdade(@PathVariable int idade) {
-        return supervisorService.obterPorIdade(idade);
-    }
-
     @PostMapping(value = "/incluir")
     public void incluir(@RequestBody Supervisor supervisor) {
         supervisorService.incluir(supervisor);
