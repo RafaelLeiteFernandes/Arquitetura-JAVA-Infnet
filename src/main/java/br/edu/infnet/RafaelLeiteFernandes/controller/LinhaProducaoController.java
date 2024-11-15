@@ -3,6 +3,8 @@ package br.edu.infnet.RafaelLeiteFernandes.controller;
 import java.util.Collection;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,12 +34,12 @@ public class LinhaProducaoController {
     }
 
     @PostMapping(value = "/incluir")
-    public LinhaProducao incluir(@RequestBody LinhaProducao linhaProducao) {
+    public LinhaProducao incluir(@Valid @RequestBody LinhaProducao linhaProducao) {
         return linhaProducaoService.incluir(linhaProducao);
     }
 
     @PutMapping(value = "/atualizar/{id}")
-    public LinhaProducao atualizar(@PathVariable Integer id, @RequestBody LinhaProducao linhaProducao) {
+    public LinhaProducao atualizar(@PathVariable Integer id, @Valid @RequestBody LinhaProducao linhaProducao) {
         return linhaProducaoService.atualizar(id, linhaProducao);
     }
 

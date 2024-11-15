@@ -26,6 +26,13 @@ public class ComponenteEletronicoService {
         componenteEletronicoRepository.save(componenteEletronico);
     }
     
+    public void atualizar(Integer id, ComponenteEletronico componenteEletronico) {
+        if (componenteEletronicoRepository.existsById(id)) {
+            componenteEletronico.setId(id);
+            componenteEletronicoRepository.save(componenteEletronico);
+        }
+    }
+    
     public void excluir(Integer id) {
         componenteEletronicoRepository.deleteById(id);
     }

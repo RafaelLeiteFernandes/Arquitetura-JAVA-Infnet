@@ -2,6 +2,8 @@ package br.edu.infnet.RafaelLeiteFernandes.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +38,7 @@ public class SupervisorController {
     }
 
     @PostMapping(value = "/incluir")
-    public void incluir(@RequestBody Supervisor supervisor) {
+    public void incluir(@Valid @RequestBody Supervisor supervisor) {
         supervisorService.incluir(supervisor);
     }
 
@@ -46,7 +48,7 @@ public class SupervisorController {
     }
 
     @PutMapping(value = "/atualizar/{id}")
-    public void atualizar(@PathVariable Integer id, @RequestBody Supervisor supervisor) {
+    public void atualizar(@PathVariable Integer id, @Valid @RequestBody Supervisor supervisor) {
         supervisorService.atualizar(id, supervisor);
     }
 }

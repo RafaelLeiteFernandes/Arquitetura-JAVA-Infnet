@@ -7,5 +7,5 @@ import br.edu.infnet.RafaelLeiteFernandes.model.domain.ComponenteEletronico;
 
 @Repository
 public interface ComponenteEletronicoRepository extends CrudRepository<ComponenteEletronico, Integer> {
-    // Métodos específicos para ComponenteEletronico, se necessário
+
 }

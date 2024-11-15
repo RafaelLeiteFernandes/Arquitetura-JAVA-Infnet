@@ -26,6 +26,13 @@ public class ComponenteMecanicoService {
         componenteMecanicoRepository.save(componenteMecanico);
     }
     
+    public void atualizar(Integer id, ComponenteMecanico componenteMecanico) {
+        if (componenteMecanicoRepository.existsById(id)) {
+            componenteMecanico.setId(id);
+            componenteMecanicoRepository.save(componenteMecanico);
+        }
+    }
+    
     public void excluir(Integer id) {
         componenteMecanicoRepository.deleteById(id);
     }

@@ -2,6 +2,8 @@ package br.edu.infnet.RafaelLeiteFernandes.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +28,13 @@ public class ComponenteMecanicoController {
     }
     
     @PostMapping
-    public void incluir(@RequestBody ComponenteMecanico componenteMecanico) {
+    public void incluir(@Valid @RequestBody ComponenteMecanico componenteMecanico) {
         componenteMecanicoService.incluir(componenteMecanico);
+    }
+    
+    @PutMapping("/{id}")
+    public void atualizar(@PathVariable Integer id, @Valid @RequestBody ComponenteMecanico componenteMecanico) {
+        componenteMecanicoService.atualizar(id, componenteMecanico);
     }
     
     @DeleteMapping("/{id}")
